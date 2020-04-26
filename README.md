@@ -3,6 +3,8 @@ git-sh
 
 A customized bash shell suitable for git work.
 
+This version is forked from [rtomayko/git-sh](https://github.com/rtomayko/git-sh) with the goal to be maintained for the future.
+
 The `git-sh` command starts an interactive bash shell tweaked for heavy git
 interaction:
 
@@ -24,7 +26,7 @@ Installation
 
 Install the most recent available version under `/usr/local`:
 
-    $ git clone git://github.com/rtomayko/git-sh.git
+    $ git clone git://github.com/angeloc/git-sh.git
     $ cd git-sh
     $ make
     $ sudo make install
@@ -32,7 +34,7 @@ Install the most recent available version under `/usr/local`:
 Start a shell with `git-sh`:
 
     $ git-sh
-    master!git-sh> help
+    master@=!git-sh> help
 
 Use the `PREFIX` environment variable to specify a different install location.
 For example, under `~/bin`:
@@ -51,15 +53,15 @@ Typical usage is to change into a git working copy and then start the shell:
 Core git commands and git command aliases defined in `~/.gitconfig` can be
 used as top-level commands:
 
-    master!mygreatrepo> checkout -b new
-    new!mygreatrepo> log -p
-    new!mygreatrepo> rebase -i HEAD~10
+    master@=!mygreatrepo> checkout -b new
+    new@=!mygreatrepo> log -p
+    new@=!mygreatrepo> rebase -i HEAD~10
 
 It's really just a normal bash shell, though, so all commands on `PATH` and any
 aliases defined in `~/.bashrc` are also available:
 
-    new!mygreatrepo> ls -l
-    new!mygreatrepo> vim somefile
+    new@=!mygreatrepo> ls -l
+    new@=!mygreatrepo> vim somefile
 
 *IMPORTANT: `rm`, `mv`, and `diff` are aliased to their git counterparts.  To use system versions,
 run `command(1)` (e.g., `command rm`) or qualify the command (e.g. `/bin/rm`).*
@@ -72,7 +74,7 @@ path to the current working directory from the root of the work tree.  If the
 work tree includes modified files that have not yet been staged, a dirty status
 indicator (`*`) is also displayed.
 
-The git-sh prompt includes ANSI colors when the git `color.ui` option is 
+The git-sh prompt includes ANSI colors when the git `color.ui` option is
 enabled. To enable git-sh's prompt colors explicitly, set the `color.sh` config
 value to `auto`:
 
@@ -106,8 +108,12 @@ are also available.
 Copying
 -------
 
-Copyright (C) 2008 [Ryan Tomayko](http://tomayko.com/)  
-Copyright (C) 2008 [Aristotle Pagaltzis](http://plasmasturm.org/)  
+Copyright (C) 2020 [Angelo Compagnucci](https://github.com/angeloc/git-sh)
+
+Copyright (C) 2008 [Ryan Tomayko](http://tomayko.com/)
+
+Copyright (C) 2008 [Aristotle Pagaltzis](http://plasmasturm.org/)
+
 Copyright (C) 2006, 2007 [Shawn O. Pearce](mailto:spearce@spearce.org)
 
 This program is free software; you can redistribute it and/or modify it
