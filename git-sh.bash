@@ -187,7 +187,7 @@ _git_dirty() {
 	if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
 		return 0
 	fi
-	local dirty_marker="`git config gitsh.dirty 2>/dev/null || echo ' *'`"
+	local dirty_marker="`git config gitsh.dirty 2>/dev/null || echo '*'`"
 
 	if ! git diff --quiet 2>/dev/null ; then
 		_git_apply_color "$dirty_marker" "color.sh.dirty" "red"
@@ -203,7 +203,7 @@ _git_dirty_stash() {
 	if ! git rev-parse --verify refs/stash >/dev/null 2>&1; then
 		return 0
 	fi
-	local dirty_stash_marker="`git config gitsh.dirty-stash 2>/dev/null || echo ' $'`"
+	local dirty_stash_marker="`git config gitsh.dirty-stash 2>/dev/null || echo '$'`"
 	_git_apply_color "$dirty_stash_marker" "color.sh.dirty-stash" "red"
 }
 
@@ -225,16 +225,16 @@ _git_upstream_state() {
 
 	# calculate the result
 	case "$count" in
-		"") # no upstream
+		"") # no remote
 			p="" ;;
-		"0	0") # equal to upstream
-			p=" u=" ;;
-		"0	"*) # ahead of upstream
-			p=" u+${count#0	}" ;;
-		*"	0") # behind upstream
-			p=" u-${count%	0}" ;;
+		"0	0") # equal to remote
+			p="=" ;;
+		"0	"*) # ahead of remote
+			p="+${count#0	}" ;;
+		*"	0") # behind remote
+			p="-${count%	0}" ;;
 		*) # diverged from upstream
-			p=" u+${count#*	}-${count%	*}" ;;
+			p="+${count#*	}:-${count%	*}" ;;
 	esac
 
 	_git_apply_color "$p" "color.sh.upstream-state" "yellow bold"
@@ -248,7 +248,7 @@ _git_workdir() {
 	_git_apply_color "${workdir/*\/}${subdir:+/$subdir}" "color.sh.workdir" "blue bold"
 }
 
-# detect if the repository is in a special state (rebase or merge)
+# detect if the repository is in a special state (rebase, merge or cherry-pick)
 _git_repo_state() {
 	local git_dir="$(git rev-parse --show-cdup 2>/dev/null).git"
 	if test -d "$git_dir/rebase-merge" -o -d "$git_dir/rebase-apply"; then
