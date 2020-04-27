@@ -178,7 +178,7 @@ _git_import_aliases () {
 
 # PROMPT =======================================================================
 
-PS1='`_git_headname``_git_upstream_state`!`_git_repo_state``_git_workdir``_git_dirty``_git_dirty_stash`> '
+PS1='`_git_headname`@`_git_upstream_state``_git_repo_state`!`_git_workdir``_git_dirty``_git_dirty_stash`> '
 
 ANSI_RESET="\001$(git config --get-color "" "reset")\002"
 
@@ -187,7 +187,7 @@ _git_dirty() {
 	if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
 		return 0
 	fi
-	local dirty_marker="`git config gitsh.dirty 2>/dev/null || echo '*'`"
+	local dirty_marker="`git config gitsh.dirty 2>/dev/null || echo ' *'`"
 
 	if ! git diff --quiet 2>/dev/null ; then
 		_git_apply_color "$dirty_marker" "color.sh.dirty" "red"
@@ -203,7 +203,7 @@ _git_dirty_stash() {
 	if ! git rev-parse --verify refs/stash >/dev/null 2>&1; then
 		return 0
 	fi
-	local dirty_stash_marker="`git config gitsh.dirty-stash 2>/dev/null || echo '$'`"
+	local dirty_stash_marker="`git config gitsh.dirty-stash 2>/dev/null || echo ' $'`"
 	_git_apply_color "$dirty_stash_marker" "color.sh.dirty-stash" "red"
 }
 
@@ -226,7 +226,7 @@ _git_upstream_state() {
 	# calculate the result
 	case "$count" in
 		"") # no remote
-			p="" ;;
+			p="?" ;;
 		"0	0") # equal to remote
 			p="=" ;;
 		"0	"*) # ahead of remote
@@ -248,7 +248,7 @@ _git_workdir() {
 	_git_apply_color "${workdir/*\/}${subdir:+/$subdir}" "color.sh.workdir" "blue bold"
 }
 
-# detect if the repository is in a special state (rebase, merge or cherry-pick)
+# detect if the repository is in a special state (rebase or merge)
 _git_repo_state() {
 	local git_dir="$(git rev-parse --show-cdup 2>/dev/null).git"
 	if test -d "$git_dir/rebase-merge" -o -d "$git_dir/rebase-apply"; then
