@@ -248,7 +248,7 @@ _git_workdir() {
 	_git_apply_color "${workdir/*\/}${subdir:+/$subdir}" "color.sh.workdir" "blue bold"
 }
 
-# detect if the repository is in a special state (rebase or merge)
+# detect if the repository is in a special state (rebase, merge or cherry-pick)
 _git_repo_state() {
 	local git_dir="$(git rev-parse --show-cdup 2>/dev/null).git"
 	if test -d "$git_dir/rebase-merge" -o -d "$git_dir/rebase-apply"; then
