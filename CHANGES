@@ -1,3 +1,11 @@
+= 1.4
+
+ * Change maintainership
+
+ * Better PS1
+
+ * Addided restore command
+
 = 0.5 / unreleased
 
  * Addition of built-in aliases taken from the example gitshrc file.
