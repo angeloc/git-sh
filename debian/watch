@@ -1,0 +1,5 @@
+# Compulsory line, this is a version 3 file
+version=3
+
+# github repository
+http://githubredir.debian.net/github/angeloc/git-sh/ (.*)\.tar\.gz

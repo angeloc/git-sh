@@ -1,0 +1,8 @@
+git-sh for Debian
+
+git-sh starts an interactive bash(1) session modified for git-heavy
+ workflows.  Typical usage is to change into the directory of a git work
+ tree or bare repository and run the git-sh command to start an interactive
+ shell session.
+
+ -- Angelo Compagnucci <angelo.compagnucci@gmail.com>  Fri, 01 May 2020 23:49:32 +0200
