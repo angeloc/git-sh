@@ -1,5 +1,7 @@
-= 1.4
+= 1.4.1
+ * Minor fixings to documentation
 
+= 1.4
  * Change maintainership
 
  * Better PS1
