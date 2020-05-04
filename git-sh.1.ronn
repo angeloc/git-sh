@@ -118,17 +118,17 @@ config files are also available as top-level shell commands. Assuming a
 
 ... you might then have the following shell session:
 
-    master!something> echo "stuff" >somefile
-    master!something*> s
+    master@=!something> echo "stuff" >somefile
+    master@=!something*> s
     M  somefile
-    master!something*> d
+    master@=!something*> d
     diff --git a/somefile b/somefile
     -- a/somefile
     ++ b/somefile
     @@ -0,0 +1 @@
     + stuff
-    master!something*> ca -m "add stuff"
-    master!something> thanks HEAD
+    master@=!something*> ca -m "add stuff"
+    master@=!something> thanks HEAD
 
 ### PROMPT
 
@@ -196,4 +196,4 @@ are also available.
 ## SEE ALSO
 
 bash(1), git(1), git-config(1),
-<http://github.com/rtomayko/git-sh>
+<http://github.com/angeloc/git-sh>
