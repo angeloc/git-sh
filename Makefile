@@ -9,8 +9,8 @@ mandir   = $(datadir)/man
 PROGRAM  = git-sh
 SOURCES  = git-sh.bash git-completion.bash \
            git-sh-aliases.bash git-sh-config.bash
-RONN     = ronn --date=2010-03-30 \
-                --organization='Ryan Tomayko'
+RONN     = ronn --date=2020-11-11 \
+                --organization='Angelo Compagnucci'
 
 all: $(PROGRAM)
 
