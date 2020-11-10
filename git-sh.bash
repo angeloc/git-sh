@@ -4,6 +4,7 @@
 #
 # Copyright (C) 2008 Ryan Tomayko <http://tomayko.com/>
 # Copyright (C) 2008 Aristotle Pagaltzis <http://plasmasturm.org/>
+# Copyright (C) 2020 Angelo Compagnucci <angelo.compagnucci@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
